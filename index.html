@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>VUE ROCKS!</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{teams.away}} @ {{teams.home}}</h2>
+      <div id="box_score">
+        <table width="50%">
+          <thead>
+            <th>Team</th>
+            <th>R</th>
+            <th>H</th>
+            <th>E</th>
+            <th>LOB</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{teams.away}}</td>
+              <td>{{score.away.runs}}</td>
+              <td>{{score.away.hits}}</td>
+              <td>{{score.away.errors}}</td>
+              <td>{{score.away.lob}}</td>
+            </tr>
+            <tr>
+              <td>{{teams.home}}</td>
+              <td>{{score.home.runs}}</td>
+              <td>{{score.home.hits}}</td>
+              <td>{{score.home.errors}}</td>
+              <td>{{score.home.lob}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="game_details">
+        <p><strong>Inning: {{game.inning}} {{game.part}}</strong></p>
+        <hr>
+        <p>Outs: {{game.outs}} | Strikes: {{game.strikes}} | Balls: {{game.balls}}</p>
+      </div>
+      <div class="clearfix">
+      </div>
+      <hr>
+      <div id="field">
+        <div class="base first" v-bind:class="{active:bases.first_base}">
+        </div>
+        <div class="base second" v-bind:class="{active:bases.second_base}">
+        </div>
+        <div class="base third" v-bind:class="{active:bases.third_base}">
+        </div>
+        <div class="base home" v-bind:class="{active:bases.home}">
+        </div>
+      </div>
+      <div id="stats">
+        <div>
+          <h3>Scoreboard</h3>
+          <button type="button" name="button" v-on:click="game.outs++">Increase Outs</button>
+          <button type="button" name="button" v-on:click="game.strikes++">Increase Strikes</button>
+          <button type="button" name="button" v-on:click="game.balls++">Increase Balls</button>
+          <button type="button" name="button" v-on:click="game.strikes = 0;game.balls = 0">Reset Count</button>
+          <button type="button" name="button" v-on:click="game.outs = 0;game.strikes = 0;game.balls = 0">Reset All</button>
+          <hr>
+          <button type="button" name="button" v-on:click="game.inning++">Increase Inning</button>
+          <button type="button" name="button" v-on:click="game.part = 'Up'">Up</button>
+          <button type="button" name="button" v-on:click="game.part = 'Down'">Down</button>
+          <button type="button" name="button" v-on:click="game.part = 'To Begin'">To Begin</button>
+          <button type="button" name="button" v-on:click="game.part = 'Mid'">Mid Part</button>
+          <button type="button" name="button" v-on:click="game.part = 'End'">End Of</button>
+        </div>
+        <hr>
+        <div>
+          First Base <input type="radio" v-on:click="firstBase">
+        </div>
+        <div>
+          Second Base <input type="radio" v-on:click="secondBase">
+        </div>
+        <div>
+          Third Base <input type="radio" v-on:click="thirdBase">
+        </div>
+        <div>
+          Home Run <input type="radio" v-on:click="homeRun">
+        </div>
+        <div>
+            <button type="button" name="button" v-on:click="clearBases">Clear Bases</button>
+          </div>
+        <hr>
+        <div>
+          <div style="width:50%;float:left">
+            <h3>Home Team Score</h3>
+            <button type="button" name="button" v-on:click="score.home.runs++">Increase Runs</button>
+            <button type="button" name="button" v-on:click="score.home.hits++">Increase Hits</button>
+            <button type="button" name="button" v-on:click="score.home.errors++">Increase Errors</button>
+            <button type="button" name="button" v-on:click="score.home.lob++">Increase LOB</button>
+          </div>
+          <div style="width:50%;float:right">
+            <h3>Away Team Score</h3>
+            <button type="button" name="button" v-on:click="score.away.runs++">Increase Runs</button>
+            <button type="button" name="button" v-on:click="score.away.hits++">Increase Hits</button>
+            <button type="button" name="button" v-on:click="score.away.errors++">Increase Errors</button>
+            <button type="button" name="button" v-on:click="score.away.lob++">Increase LOB</button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>

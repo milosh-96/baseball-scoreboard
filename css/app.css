@@ -1,0 +1,65 @@
+#app {
+  width: 960px;
+  margin: 0 auto;
+  font-family: Verdana;
+}
+#field {
+  width:480px;
+  height:500px;
+  background:green;
+  position: relative;
+  float: left;
+}
+#stats {
+  padding: 15px;
+  box-sizing: border-box;
+  width: 450px;
+  float: right;
+}
+
+.base {
+  width:30px;
+  height: 30px;
+  background: white;
+  border: 3px solid rgba(0,0,0,0.2);
+  position: absolute;
+  -webkit-transform: rotate(45deg) skew(1deg, 1deg)
+}
+.base.active {
+  background: gold;
+}
+
+.base.home {
+  bottom: 100px;
+  left:225px;
+}
+.base.first {
+  bottom: 225px;
+  right:100px;
+}
+.base.second {
+  bottom: 325px;
+  left: 225px;
+}
+.base.third {
+  bottom: 225px;
+  left: 100px;
+}
+table th,table td {
+  text-align: center;
+}
+
+
+#box_score {
+  width: 60%;
+  float: left;
+}
+#game_details {
+  width: 40%;
+  float: left;
+}
+
+
+.clearfix {
+  clear:both;
+}
