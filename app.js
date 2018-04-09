@@ -3,8 +3,8 @@ new Vue({
 
   data: {
     teams: {
-      home: "New York Yankees",
-      away: "Baltimore Orioles"
+      home: "New York Mets",
+      away: "Washington Nationals"
     },
     game: {
       inning:0,
